@@ -35,6 +35,8 @@ class AccountController
 
 	function ShowPanelAccount()
 	{	
+		$accountModel = new AccountModel();
+
 		$username = $_POST[USERNAME];
 		$password = $_POST[PASSWORD];
 		
@@ -77,6 +79,8 @@ class AccountController
 
 	//add user
 	function AddUser(){
+		$accountModel = new AccountModel();
+
 		$username = $_POST['username']; 
 		$password = md5($_POST['password']); 
 		$name = $_POST['name'];
@@ -100,6 +104,8 @@ class AccountController
 	}
 
 	function UpdateAccount(){
+		$accountModel = new AccountModel();
+
 		$username = $_POST['username']; 
 		$password = $_POST['password']; 
 		$name = $_POST['name'];
@@ -115,7 +121,7 @@ class AccountController
 			$user[] = array($name,md5($password),$gender,$email,$phone,$address,$date,$username);
 		}
 		
-		$result = $accountModel->UpdateUser($user, $username);
+		$result = $accountModel->UpdateUser($user, $username, $password);
 		
 		if($result){
 			SetMessage("Cập nhật thành công");

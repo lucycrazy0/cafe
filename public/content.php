@@ -4,8 +4,10 @@
 <div id="content">
 
 <?php 
-	if(isset($view))
+	// if have view then show
+	if(isset($view)){
 		include ($view);
+	}
 ?>
 
 <?php include("footer.php"); ?>

@@ -2,7 +2,7 @@
 	require_once("database.php");
 	class OrderModel extends database
 	{
-		function AddOrder($order) 
+		public function AddOrder($order) 
 		{
             $query = "INSERT INTO hoa_don VALUES(?,?,?,?,?,?,?,?)";
             $this->setQuery($query);
@@ -14,7 +14,7 @@
                 return false;
             }
         }
-		function AddDetailOrder($detailOrder) {
+		public function AddDetailOrder($detailOrder) {
             $query = "INSERT INTO ct_hoa_don VALUES(?,?,?,?,?)";
             $this->setQuery($query);
             $result = $this->execute($detailOrder);
@@ -25,7 +25,7 @@
                 return false;
             }
         }
-		function GetDetailOrder($idOrder){
+		public function GetDetailOrder($idOrder){
 			$sql ="select sp.ten_san_pham, sp.hinh, sp.gia,ct.so_luong
 				   from san_pham sp,ct_hoa_don ct,hoa_don hd
 				   where sp.ma_san_pham = ct.ma_san_pham and ct.so_hoa_don = hd.so_hoa_don and hd.so_hoa_don = ? ";

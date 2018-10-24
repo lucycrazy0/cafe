@@ -12,7 +12,7 @@ $(document).ready(function() {
                 dongiagiohang  : $dongia,
                 };
 			$.ajax({
-                    url:"cap_nhat_gio_hang.php",
+                    url:"updatecart.php",
                     type: 'POST',
                     async : false,
                     data: form_data,

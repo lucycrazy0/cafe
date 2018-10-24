@@ -5,7 +5,7 @@ $(document).ready(function() {
 				id    : $key
 		};
 		$.ajax({
-			url:"chi_tiet_san_pham.php",
+			url:"detailproduct.php",
 			type: 'POST',
 			async : false,
 			data: form_data,

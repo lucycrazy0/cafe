@@ -15,7 +15,7 @@ $(document).ready(function() {
                 dongia  : $dongia,
                 };
 			$.ajax({
-                    url:"mua_hang.php",
+                    url:"buyproduct.php",
                     type: 'POST',
                     async : false,
                     data: form_data,

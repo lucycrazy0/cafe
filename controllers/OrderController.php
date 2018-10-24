@@ -10,6 +10,7 @@
 			// model
 			$orderModel = new OrderModel();
 			$cartController = new CartController();
+
 			$orderParams = [NULL,$hour,$date,$idCustomer,$_SESSION[THANH_TIEN],$status,$number_table,$pay];
 			$idOrder = $orderModel->AddOrder($orderParams);
 			if($idOrder > 0)

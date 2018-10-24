@@ -1,9 +1,12 @@
 <?php 
 	require_once("database.php");
+	define("QUERY_UPDATE_USER_PASSWORD","update nguoi_dung set ten=?, mat_khau=?, gioi_tinh=?, email=?, so_dien_thoai=?, dia_chi=?, date=? where ten_dang_nhap=?");
+	define("QUERY_UPDATE_USER_NOT_PASSWORD","update nguoi_dung set ten=?, mat_khau=?, gioi_tinh=?, email=?, so_dien_thoai=?, dia_chi=?, date=? where ten_dang_nhap=?");
+
 	class AccountModel extends database
 	{
 		//get user by user name 
-		function GetUserByUsername($username)
+		public function GetUserByUsername($username)
 		{
 			$sql = "select * from nguoi_dung where ten_dang_nhap=?";
 			$this->setQuery($sql);
@@ -11,7 +14,7 @@
 		}
 
 		//get user by username and password
-		function GetUserByUsernameAndPassword($username,$password)
+		public function GetUserByUsernameAndPassword($username,$password)
 		{
 			$sql = "select * from nguoi_dung where ten_dang_nhap=? and mat_khau=?";
 			$this->setQuery($sql);
@@ -19,7 +22,7 @@
 		}
 
 		//add custimer
-		function AddCustomer($user)
+		public function AddCustomer($user)
 		{
 			$sql = "insert into khach_hang values(?,?,?,?,?)";
 			$this->setQuery($sql);
@@ -33,7 +36,7 @@
 		}
 
 		//add user		
-		function AddUser($user)
+		public function AddUser($user)
 		{	
 			
 			$sql = "insert into nguoi_dung values(?,?,?,?,?,?,?,?,?,?)";
@@ -48,12 +51,13 @@
 		}
 
 		//update active for user by username
-		function UpdateActiveByUsername($username)
+		public function UpdateActiveByUsername($username)
 		{
 			$sql = "update nguoi_dung set active=? where ten_dang_nhap=?";
 			$this->setQuery($sql);
 			$param = array(1,$username);
 			$result = $this->execute($param);
+			
 			if($result){
 				return $this->getLastId();
 			} else{
@@ -62,22 +66,18 @@
 		}
 
 		//update information for user
-		function UpdateUser($userParamter, $username)
+		public function UpdateUser($userParamter, $username, $password)
 		{
 			$user = $this->GetUserByUsername($username);
 			if($user->password == $password){
-				$sql = "update nguoi_dung set ten=?, mat_khau=?, gioi_tinh=?, email=?, so_dien_thoai=?, dia_chi=?, date=? where ten_dang_nhap=?";
-				$this->setQuery($sql);
-				$param = $userParamter;
+				$sql = QUERY_UPDATE_USER_PASSWORD;
+			}else{
+				$sql = QUERY_UPDATE_USER_NOT_PASSWORD;
 			}
-			else
-			{
-				$sql = "update nguoi_dung set ten=?, mat_khau=?, gioi_tinh=?, email=?, so_dien_thoai=?, dia_chi=?, date=? where ten_dang_nhap=?";
-				$this->setQuery($sql);
-				$param = $userParamter;
-			}
+			$this->setQuery($sql);
+			$param = $userParamter;
+			$result = $this->execute($param);
 
-			$result = $this->execute($param);	
 			if($result) {
 				return $this->getLastId();
 			}else{
@@ -86,7 +86,7 @@
 		}
 
 		//get user DESC
-		function User()
+		public function User()
 		{
 			$sql = "SELECT * FROM nguoi_dung order by ma_nguoi_dung DESC limit 0,1";
 			$this->setQuery($sql);
@@ -94,7 +94,7 @@
 		}
 
 		//get customer DESC
-		function Customer()
+		public function Customer()
 		{
 			$sql = "SELECT * FROM khach_hang order by ma_khach_hang DESC limit 0,1";
 			$this->setQuery($sql);
@@ -102,7 +102,7 @@
 		}
 
 		//get last id of user and customer
-		function GetLastId()
+		public function GetLastId()
 		{
 			$id_nd = $this->User();
 			$id_kh = $this->Customer();
