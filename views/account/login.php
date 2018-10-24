@@ -29,8 +29,10 @@
                             <input type="password" name="password" class="form-control" />
                         </div>
                     </div>
-                    <center><input name="login" class="btn btn-warning btn-custom" value="ĐĂNG NHẬP" type="submit" /></center>
-                    <center><input name="signup" class="btn btn-secondary btn-custom" value="ĐĂNG KÝ" type="submit" /></center>
+                    <div class="text-center">
+                        <input name="login" class="btn btn-warning btn-custom text-center" value="ĐĂNG NHẬP" type="submit" />
+                        <input name="signup" class="btn btn-secondary btn-custom text-center" value="ĐĂNG KÝ" type="submit" />
+                    </div>
                 </form>
             </div>
         </div>

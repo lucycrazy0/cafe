@@ -1,6 +1,6 @@
 <?php
-	require_once("database.php");
-	class OrderModel extends database
+	require_once("DatabaseOOP.php");
+	class OrderModel extends DatabaseOOP
 	{
 		public function AddOrder($order) 
 		{

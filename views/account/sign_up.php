@@ -62,7 +62,9 @@
                             </div>
                         </div>
                     </div>
-                    <center><input  class="btn btn-warning btn-custom" value="ĐĂNG KÝ" name="sign_up" type="submit" /></center>
+                    <div class="text-center">
+                        <input  class="btn btn-warning btn-custom" value="ĐĂNG KÝ" name="sign_up" type="submit" />
+                    </div>
                 </form>
             </div>
         </div>

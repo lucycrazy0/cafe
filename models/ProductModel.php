@@ -1,6 +1,6 @@
 <?php 
-	require_once("database.php");
-	class ProductModel extends database
+	require_once("DatabaseOOP.php");
+	class ProductModel extends DatabaseOOP
 	{
 		function ShowProductByIdCategory($idCategory)
 		{

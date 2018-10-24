@@ -1,6 +1,6 @@
 <?php
-require_once("config.php");
-class database{
+require_once("Config.php");
+class DatabaseOOP{
     protected $pdo = NULL;
     protected $sql = '';
     protected $sta = NULL;

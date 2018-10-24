@@ -1,7 +1,7 @@
 <?php 
-	require_once("database.php");
+	require_once("DatabaseOOP.php");
 
-	class AccountModel extends database
+	class AccountModel extends DatabaseOOP
 	{
 		//get user by user name 
 		public function GetUserByUsername($username)
