@@ -1,7 +1,5 @@
 <?php 
 	require_once("database.php");
-	define("QUERY_UPDATE_USER_PASSWORD","update nguoi_dung set ten=?, mat_khau=?, gioi_tinh=?, email=?, so_dien_thoai=?, dia_chi=?, date=? where ten_dang_nhap=?");
-	define("QUERY_UPDATE_USER_NOT_PASSWORD","update nguoi_dung set ten=?, mat_khau=?, gioi_tinh=?, email=?, so_dien_thoai=?, dia_chi=?, date=? where ten_dang_nhap=?");
 
 	class AccountModel extends database
 	{
@@ -66,18 +64,14 @@
 		}
 
 		//update information for user
-		public function UpdateUser($userParamter, $username, $password)
+		public function UpdateUser($userParamter, $username)
 		{
-			$user = $this->GetUserByUsername($username);
-			if($user->password == $password){
-				$sql = QUERY_UPDATE_USER_PASSWORD;
-			}else{
-				$sql = QUERY_UPDATE_USER_NOT_PASSWORD;
-			}
+			
+			$sql = "update nguoi_dung set ten=?, mat_khau=?, gioi_tinh=?, email=?, so_dien_thoai=?, dia_chi=?, date=? 
+					where ten_dang_nhap=?";
 			$this->setQuery($sql);
 			$param = $userParamter;
 			$result = $this->execute($param);
-
 			if($result) {
 				return $this->getLastId();
 			}else{

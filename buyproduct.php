@@ -1,16 +1,17 @@
 <?php
-@session_start();
-include ("controllers/CartController.php");
-$cartController=new CartController();
-$key = $_POST['id'];
-$soLuong = ((int)$_POST['soluong']);
-$donGia = ((double)$_POST['dongia']);
+    @session_start();
+    require_once ("controllers/CartController.php");
+    $cartController=new CartController();
+    
+    $key = $_POST['id'];
+    $number = ((int)$_POST['soluong']);
+    $price = ((double)$_POST['dongia']);
 
-if($soLuong>=0 && $donGia>0){
-    $cartController->AddProductInCart($key, $soLuong, $donGia);
-}
+    if($number>=0 && $price>0){
+        $cartController->AddProductInCart($key, $number, $price);
+    }
 
-$arrGioHang = array('sl'=>$cartController->NumberProduct(), 'st'=>number_format($cartController->Money()));
-echo json_encode($arrGioHang);
+    $arrCart = array('sl'=>$cartController->NumberProduct(), 'st'=>number_format($cartController->Money()));
+    echo json_encode($arrCart);
 ?>
 

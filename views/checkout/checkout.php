@@ -25,12 +25,12 @@
                         <tr>
                             <td class="title">
                                 <span class="name"><?php echo $san_pham_gh->ten_san_pham; ?></span>
-                                <!-- <span class="caption text-muted"><?php echo $san_pham_gh->mo_ta_chi_tiet; ?></span> -->
                             </td>
-                            <td class="price" align="center"><input type="text" value="<?php echo $san_pham_gh->so_luong ?>" id="soluonggiohang<?php echo $san_pham_gh->ma_san_pham ?>" name="soluonggiohang<?php $san_pham_gh->ma_san_pham ?>" size="2" readonly="readonly" style="text-align:center"/></td>
+                            <td class="price text-center"><input type="text" value="<?php echo $san_pham_gh->so_luong ?>" id="soluonggiohang<?php echo $san_pham_gh->ma_san_pham ?>" name="soluonggiohang<?php $san_pham_gh->ma_san_pham ?>" size="2" readonly="readonly" style="text-align:center"/></td>
                             <td class="price"><?php echo number_format($san_pham_gh->gia); ?></td>
                         </tr>
-                    <?php }}?>
+                    <?php }
+                }?>
                     </table>
                     <div class="cart-summary">
                         <div class="row text-md">
@@ -43,7 +43,7 @@
             <div class="col-xl-8 pull-xl-4 col-lg-7 pull-lg-5">
                 <div class="bg-white p-4 p-md-5 mb-4">
                 <?php if(!isset($_SESSION[USER])){ 
-					echo '<h4 class="border-bottom pb-4"><i class="ti ti-user mr-3 text-primary"></i>ĐĂNG NHẬP & ĐĂNG KÝ</h4>
+					echo '<h4 class="border-bottom pb-4"><em class="ti ti-user mr-3 text-primary"></em>ĐĂNG NHẬP & ĐĂNG KÝ</h4>
 							<form action="account.php" method="post">
 								<div class="row">
 									<div style="margin-left: 10px"><input type="submit" value="ĐĂNG NHẬP" name="login_checkout" class="btn btn-primary" style="width:150px" /></div>
@@ -54,7 +54,7 @@
 				?>
 					<form action="checkout.php" method="post" >
                     <?php if(!isset($_SESSION[USER])) {
-						echo '<h4 class="border-bottom pb-4 mt-3"><i class="ti ti-user mr-3 text-primary"></i>THÔNG TIN MUA HÀNG</h4>
+						echo '<h4 class="border-bottom pb-4 mt-3"><em class="ti ti-user mr-3 text-primary"></em>THÔNG TIN MUA HÀNG</h4>
 								 <div class="row mb-5">
 								<div class="form-group col-sm-6">
 									<label>Tên:</label>
@@ -81,16 +81,16 @@
 					}
 					?>
 
-                        <h4 class="border-bottom pb-4"><i class="ti ti-package mr-3 text-primary"></i>CHỌN BÀN</h4>
+                        <h4 class="border-bottom pb-4"><em class="ti ti-package mr-3 text-primary"></em>CHỌN BÀN</h4>
                         <div class="row mb-5">
                             <div class="form-group col-sm-6">
-                                <!--<label>Delivery time:</label> -->
                                 <div class="select-container">
                                     <select name="number_table" class="form-control">
                                         <option value="chon_ban">Chọn bàn</option>
                                         <?php if(isset($tables)){ foreach($tables as $table) {?>
                                         		<option ="<?php echo $table->ma_ban;?>"><?php echo $table->ten_ban;?></option>
-                                        <?php }}?>
+                                        <?php }
+                                    }?>
                                     </select>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                 </div>
 							</div>';
 						 }?>
-                        <h4 class="border-bottom pb-4"><i class="ti ti-wallet mr-3 text-primary"></i>HÌNH THỨC THANH TOÁN</h4>
+                        <h4 class="border-bottom pb-4"><em class="ti ti-wallet mr-3 text-primary"></em>HÌNH THỨC THANH TOÁN</h4>
                         <div class="row text-lg">
                             <div class="col-md-4 col-sm-6 form-group">
                                 <label class="custom-control custom-radio">

@@ -5,7 +5,7 @@ class database{
     protected $sql = '';
     protected $sta = NULL;
 
-    public function database() {
+    public function __construct() {
         try
 		{
 			$this->pdo = new PDO("mysql:host=".DB_HOST."; dbname=".DB_NAME,DB_USER,DB_PWD);

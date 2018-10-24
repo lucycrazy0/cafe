@@ -4,6 +4,7 @@
 	require_once("controllers/OrderController.php");
 	require_once("models/AccountModel.php");
 	require_once("common/Constant.php");
+
 	$checkoutController = new CheckoutController();
 	$orderController = new OrderController();
 	$accountModel = new AccountModel();
@@ -64,8 +65,8 @@
 					$orderController->AddOrderAndDetailOrder($hour,$date,$user->ma_nguoi_dung,$status,$address_shipping,$payment);
 				}
 			}
-		}
-		else{
+		}else{
+
 			$name = empty($_POST['name'])?" ":$_POST['name'];
 			$phone = empty($_POST['phone'])?" ":$_POST['phone'];
 			$email = empty($_POST['email'])?" ":$_POST['email'];
@@ -85,5 +86,6 @@
 			$orderController->AddOrderAndDetailOrder($hour,$date,$idCustomer,$status,$number_table,$payment);	
 		}	
 	}
+	
 	$checkoutController->ShowCheckout();
 ?>

@@ -11,14 +11,14 @@
 			$orderModel = new OrderModel();
 			$cartController = new CartController();
 
-			$orderParams = [NULL,$hour,$date,$idCustomer,$_SESSION[THANH_TIEN],$status,$number_table,$pay];
+			$orderParams[] = array(NULL,$hour,$date,$idCustomer,$_SESSION[THANH_TIEN],$status,$number_table,$pay);
 			$idOrder = $orderModel->AddOrder($orderParams);
 			if($idOrder > 0)
 			{
 				$products = $_SESSION[PRODUCT_IN_CART];
 				foreach($products as $product)
 				{
-					$detailOrderParams = [NULL,$idOrder,$product->ma_san_pham,$product->so_luong,$product->gia];
+					$detailOrderParams[] = array(NULL,$idOrder,$product->ma_san_pham,$product->so_luong,$product->gia);
 					$orderModel->AddDetailOrder($detailOrderParams);
 				}
 				$cartController->DeleteCart();

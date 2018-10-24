@@ -7,21 +7,21 @@ require_once("models/AccountModel.php");
 $accountModel = new AccountModel();
 class AccountController
 {				
-	function ShowLogin()
+	public function ShowLogin()
 	{
 		//views
 		$view = "views/account/login.php";
 		require_once(VIEW_CONTENT);	
 	}
 	
-	function ShowSignUp()
+	public function ShowSignUp()
 	{
 		//views
 		$view = "views/account/sign_up.php";
 		require_once(VIEW_CONTENT);	
 	}
 
-	function IsEmptyUsernameAndPassword($username, $password){
+	private function IsEmptyUsernameAndPassword($username, $password){
 		//Trường hợp chưa nhập tên đăng nhập, báo lỗi
 		// 2.2.a.3
 		empty(trim($username))?setMessage(ERR101_LOGIN_USER):$username=trim($username);
@@ -33,7 +33,7 @@ class AccountController
 		return (!empty(trim($_POST[USERNAME])) && !empty(trim($_POST[PASSWORD])))?true:false;
 	}
 
-	function ShowPanelAccount()
+	public function ShowPanelAccount()
 	{	
 		$accountModel = new AccountModel();
 
@@ -41,9 +41,9 @@ class AccountController
 		$password = $_POST[PASSWORD];
 		
 		if(!isset($_SESSION[USER])){	
-			
+
 			// if username and password not empty
-			if(IsEmptyUsernameAndPassword($username,$password)){
+			if($this->IsEmptyUsernameAndPassword($username,$password)){
 				
 				$isUsername = $accountModel->GetUserByUsername($username);
 				// Trường hợp giá trị không tồn tại trong table nguoi_dung
@@ -78,7 +78,7 @@ class AccountController
 	}
 
 	//add user
-	function AddUser(){
+	public function AddUser(){
 		$accountModel = new AccountModel();
 
 		$username = $_POST['username']; 
@@ -103,7 +103,7 @@ class AccountController
 		
 	}
 
-	function UpdateAccount(){
+	public function UpdateAccount(){
 		$accountModel = new AccountModel();
 
 		$username = $_POST['username']; 
@@ -121,7 +121,7 @@ class AccountController
 			$user[] = array($name,md5($password),$gender,$email,$phone,$address,$date,$username);
 		}
 		
-		$result = $accountModel->UpdateUser($user, $username, $password);
+		$result = $accountModel->UpdateUser($user, $username);
 		
 		if($result){
 			SetMessage("Cập nhật thành công");
@@ -132,7 +132,7 @@ class AccountController
 		SetLocaltion("account.php");
 	}
 
-	function LogOut()
+	public function LogOut()
 	{
 		unset($_SESSION[USER]);
 		SetLocaltion("account.php");

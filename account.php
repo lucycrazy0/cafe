@@ -14,7 +14,7 @@
 	{
 		$accountController->ShowSignUp();	
 	}
-	else if(isset($_POST['login']) || isset($_SESSION['ten_dang_nhap'])) // if use choose button login or issue session ten_dang_nhap
+	else if(isset($_POST['login']) || isset($_SESSION[USER])) // if use choose button login or issue session ten_dang_nhap
 	{
 		$accountController->ShowPanelAccount();
 	}
@@ -40,5 +40,6 @@
 	{
 		$accountController->UpdateAccount();
 	}
+	
 	$accountController->ShowLogin();
 ?>

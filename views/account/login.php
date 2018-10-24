@@ -13,7 +13,7 @@
                 <div class="utility-box-title bg-dark dark">
                     <div class="bg-image"><img src="public/layout/assets/img/photos/modal-review.jpg" alt=""></div>
                     <div>
-                        <span class="icon icon-primary"><i class="ti ti-bookmark-alt"></i></span>
+                        <span class="icon icon-primary"><em class="ti ti-bookmark-alt"></em></span>
                         <h4 class="mb-0 mt-3">ĐĂNG NHẬP</h4>
                         <p class="lead text-muted mb-0">Hãy nhập đúng thông tin tài khoản. </p>
                     </div>
@@ -29,8 +29,8 @@
                             <input type="password" name="password" class="form-control" />
                         </div>
                     </div>
-                    <center><input style="width:500px;height:70px;margin-bottom:20px" name="login" class="btn btn-warning" value="ĐĂNG NHẬP" type="submit" /></center>
-                    <center><input style="width:500px;height:70px;margin-bottom:20px" name="signup" class="btn btn-secondary" value="ĐĂNG KÝ" type="submit" /></center>
+                    <center><input name="login" class="btn btn-warning btn-custom" value="ĐĂNG NHẬP" type="submit" /></center>
+                    <center><input name="signup" class="btn btn-secondary btn-custom" value="ĐĂNG KÝ" type="submit" /></center>
                 </form>
             </div>
         </div>

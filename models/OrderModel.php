@@ -34,7 +34,9 @@
         }
 		public function GetOrderByCustomer($key)
         {
-            $query = "select hd.ngay_hd, hd.thoi_gian, hd.tri_gia, hd.so_hoa_don, hd.tinh_trang from nguoi_dung nd, hoa_don hd where nd.ma_nguoi_dung = hd.ma_khach_hang and nd.ma_nguoi_dung=?";
+            $query = "select hd.ngay_hd, hd.thoi_gian, hd.tri_gia, hd.so_hoa_don, hd.tinh_trang 
+                      from nguoi_dung nd, hoa_don hd 
+                      where nd.ma_nguoi_dung = hd.ma_khach_hang and nd.ma_nguoi_dung=?";
             $this->setQuery($query);
             return $this->loadAllRows(array($key));
         }	

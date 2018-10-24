@@ -49,14 +49,14 @@
 
 <div class="container">
     <div class="col-lg-5 col-lg-push-7 col-md-9 push-md-6">
-        <div class="rate mb-5 rate-lg"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
+        <div class="rate mb-5 rate-lg"><em class="fa fa-star active"></em><em class="fa fa-star active"></em><em class="fa fa-star active"></em><em class="fa fa-star active"></em><em class="fa fa-star"></em></div>
         <h1>Nhận xét LTP Coffee ở Hồ Chí Minh</h1>
         <p class="lead text-muted mb-5">Đây là những lời nhận xét, khi khách hàng đến uống và thưởng thức các món ăn tại cửa hàng của chúng tôi ...</p>
         <div class="blockquotes">
             <!-- Blockquote -->
             <blockquote class="blockquote light animated" data-animation="fadeInLeft">
                 <div class="blockquote-content">
-                    <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
+                    <div class="rate rate-sm mb-3"><em class="fa fa-star active"></em><em class="fa fa-star active"></em><em class="fa fa-star active"></em><em class="fa fa-star active"></em><em class="fa fa-star"></em></div>
                     <p>Cửa hàng mang kiến trúc châu âu với nhiều món ăn ngon. Tôi rất thích !!</p>
                 </div>
                 <footer>
@@ -67,7 +67,7 @@
             <!-- Blockquote -->
             <blockquote class="blockquote animated" data-animation="fadeInRight" data-animation-delay="300">
                 <div class="blockquote-content dark">
-                    <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
+                    <div class="rate rate-sm mb-3"><em class="fa fa-star active"></em><em class="fa fa-star active"></em><em class="fa fa-star active"></em><em class="fa fa-star active"></em><em class="fa fa-star"></em></div>
                     <p>Ở quán, tôi cảm thấy như đang ở nhà, cách phục vụ thật là tử tế và tận tình.</p>
                 </div>
                 <footer>
@@ -89,7 +89,7 @@
         <div class="col-md-4">
             <!-- Step -->
             <div class="feature feature-1 mb-md-0">
-                <div class="feature-icon icon icon-primary"><i class="ti ti-shopping-cart"></i></div>
+                <div class="feature-icon icon icon-primary"><em class="ti ti-shopping-cart"></em></div>
                 <div class="feature-content">
                     <h4 class="mb-2"><a href="menu-list-collapse.html">MUA HÀNG</a></h4>
                     <p class="text-muted mb-0">Bạn có thể chọn nước uống và thức ăn ở phần menu với nhiều loại. Thõa mãn mọi yêu cầu ăn uống của bạn. </p>
@@ -99,7 +99,7 @@
         <div class="col-md-4">
             <!-- Step -->
             <div class="feature feature-1 mb-md-0">
-                <div class="feature-icon icon icon-primary"><i class="ti ti-wallet"></i></div>
+                <div class="feature-icon icon icon-primary"><em class="ti ti-wallet"></em></div>
                 <div class="feature-content">
                     <h4 class="mb-2">THANH TOÁN</h4>
                     <p class="text-muted mb-0">Bạn có thể chọn hình thức thanh toán ở phần thanh toán giỏ hàng, với nhiều hình thức.</p>
@@ -109,7 +109,7 @@
         <div class="col-md-4">
             <!-- Step -->
             <div class="feature feature-1 mb-md-0">
-                <div class="feature-icon icon icon-primary"><i class="ti ti-package"></i></div>
+                <div class="feature-icon icon icon-primary"><em class="ti ti-package"></em></div>
                 <div class="feature-content">
                     <h4 class="mb-2">PHỤC VỤ</h4>
                     <p class="text-muted mb-3">Nhân viên phục vụ tận tình, mang cho bạn những trải nghiệm tại quán tuyệt vời nhất. </p>
@@ -158,7 +158,8 @@
             <h3 class="title"><?php echo $category->ten_loai; ?></h3>
         </a>
     </div>
-    <?php }}?>
+    <?php }
+}?>
 </div>
 
 </section>

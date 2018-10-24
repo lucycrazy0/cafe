@@ -3,7 +3,7 @@
 	require_once("models/ProductModel.php");
 	class MenuController
 	{
-		function Hien_thi_menu()
+		function ShowMenu()
 		{
 			//models 
 			$productModel = new ProductModel();

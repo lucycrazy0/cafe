@@ -3,9 +3,8 @@
 	require_once("models/AccountModel.php");
 	$accountModel = new AccountModel();
 	$orderModel = new OrderModel();
-	$user = $accountModel->GetUserByUsername($_SESSION['ten_dang_nhap']);
-	$hoa_don = $orderModel->GetOrderByCustomer($user->ma_nguoi_dung);
-	//echo '<pre>',print_r($hoa_don),'</pre>';
+	$user = $accountModel->GetUserByUsername($_SESSION[USER]);
+	$orders = $orderModel->GetOrderByCustomer($user->ma_nguoi_dung);
 ?>
 <!-- Page Title -->
 <div class="page-title bg-dark dark">
@@ -30,22 +29,23 @@
                 <div class="shadow bg-white stick-to-content mb-4">
                     <div class="bg-dark dark p-4"><h5 class="mb-0">HÓA ĐƠN</h5></div>
                     <table class="table-cart">
-                    <?php if(isset($hoa_don)){ foreach($hoa_don as $hd){ ?>
+                    <?php if(isset($orders)){ foreach($orders as $order){ ?>
                         <tr>
                             <td class="title">
-                                <span class="name"><a id="<?php echo $hd->so_hoa_don;?>" data-toggle="modal" href="#productModalCTHD"><?php echo $hd->ngay_hd; ?></a></span>
+                                <span class="name"><a id="<?php echo $order->so_hoa_don;?>" data-toggle="modal" href="#productModalCTHD"><?php echo $order->ngay_hd; ?></a></span>
                             </td>
-                            <td class="name" align="center"><input type="text" value="<?php if($hd->tinh_trang == 0) echo "ĐANG CHẾ BIẾN"; elseif($hd->tinh_trang == 1) echo "ĐÃ CHẾ BIẾN"; elseif($hd->tinh_trang == 2) echo "CHUYỂN SẢN PHẨM"; elseif($hd->tinh_trang == 3) echo "CHƯA THANH TOÁN"; elseif($hd->tinh_trang == 4) echo "ĐÃ THANH TOÁN"; elseif($hd->tinh_trang == 5) echo "CẬP NHẬT ĐH"; elseif($hd->tinh_trang == 6) echo "HỦY"; else echo "HOÀN TIỀN"?>" size="11" readonly="readonly" style="text-align:center; font-size: small"/></td>
-                            <td class="price"><?php echo number_format($hd->tri_gia); ?>đ</td>
+                            <td class="name text-center"><input type="text" value="<?php if($order->tinh_trang == 0){ echo "ĐANG CHẾ BIẾN"; }elseif($order->tinh_trang == 1){ echo "ĐÃ CHẾ BIẾN"; }elseif($order->tinh_trang == 2){ echo "CHUYỂN SẢN PHẨM"; }elseif($order->tinh_trang == 3){ echo "CHƯA THANH TOÁN"; }elseif($order->tinh_trang == 4){ echo "ĐÃ THANH TOÁN"; }elseif($order->tinh_trang == 5){ echo "CẬP NHẬT ĐH"; }elseif($order->tinh_trang == 6){ echo "HỦY"; }else{ echo "HOÀN TIỀN"; } ?>" size="11" readonly="readonly" style="text-align:center; font-size: small"/></td>
+                            <td class="price"><?php echo number_format($order->tri_gia); ?>đ</td>
                         </tr>
-                    <?php }}?>
+                    <?php }
+                }?>
                     </table>
                 </div>
             </div>
             <div class="col-xl-8 pull-xl-4 col-lg-7 pull-lg-5">
             <form action="account.php" method="post">
                 <div class="bg-white p-4 p-md-5 mb-4">
-                    <h4 class="border-bottom pb-4"><i class="ti ti-user mr-3 text-primary"></i>THÔNG TIN</h4>
+                    <h4 class="border-bottom pb-4"><em class="ti ti-user mr-3 text-primary"></em>THÔNG TIN</h4>
                     <div class="row mb-5">
                         <div class="form-group col-sm-6">
                             <label>Tên:</label>
@@ -73,9 +73,9 @@
                         </div>
                         <div class="form-group col-sm-6">
                         	<label>Giới tính</label>
-                            <div class="row" align="center">
-                                <div style="margin:20px 20px 20px 20px">Nam: <input type="radio" name="gender" value="0" <?php if($user->gioi_tinh == 0) echo "checked";?> /></div>
-                                <div style="margin:20px 20px 30px 30px">Nữ: <input type="radio" name="gender" value="1" <?php if($user->gioi_tinh == 1) echo "checked";?> /></div>
+                            <div class="row text-center">
+                                <div style="margin:20px 20px 20px 20px">Nam: <input type="radio" name="gender" value="0" <?php if($user->gioi_tinh == 0){ echo "checked"; }?> /></div>
+                                <div style="margin:20px 20px 30px 30px">Nữ: <input type="radio" name="gender" value="1" <?php if($user->gioi_tinh == 1){ echo "checked"; }?> /></div>
                             </div>
                         </div>
                         <div class="form-group col-sm-6">

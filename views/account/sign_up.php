@@ -13,7 +13,7 @@
                 <div class="utility-box-title bg-dark dark">
                     <div class="bg-image"><img src="public/layout/assets/img/photos/modal-review.jpg" alt=""></div>
                     <div>
-                        <span class="icon icon-primary"><i class="ti ti-bookmark-alt"></i></span>
+                        <span class="icon icon-primary"><em class="ti ti-bookmark-alt"></em></span>
                         <h4 class="mb-0 mt-3">ĐĂNG KÝ</h4>
                         <p class="lead text-muted mb-0">Hãy điền đầy đủ các thông tin của bạn bên dưới.</p>
                     </div>
@@ -62,8 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <center><input style="width:500px;height:70px;margin-bottom:20px" class="btn btn-warning" value="ĐĂNG KÝ" name="sign_up" type="submit" /></center>
-                    <!-- <center><input style="width:500px;height:70px;margin-bottom:20px" class="btn btn-secondary" value="Login" type="submit" /></center> -->
+                    <center><input  class="btn btn-warning btn-custom" value="ĐĂNG KÝ" name="sign_up" type="submit" /></center>
                 </form>
             </div>
         </div>
